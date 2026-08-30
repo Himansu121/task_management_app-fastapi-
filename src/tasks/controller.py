@@ -14,3 +14,9 @@ def create_task(body: taskshchema, db: Session):
     db.refresh(new_task)
     
     return {"status": "task created successfully", "data": new_task}
+
+
+
+def get_tasks(db: Session):
+    tasks = db.query(taskmodel).all()
+    return {"status": "success", "data": tasks}
